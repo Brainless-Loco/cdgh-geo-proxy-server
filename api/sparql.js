@@ -1,9 +1,8 @@
-// api/sparql.js
 import axios from 'axios';
 
 export default async function handler(req, res) {
   if (req.method !== 'GET') {
-    return res.status(405).json({ error: 'Only GET supported' });
+    return res.status(405).json({ error: 'Only GET requests allowed' });
   }
 
   try {
