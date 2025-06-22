@@ -1,12 +1,12 @@
 import axios from 'axios';
 
 export default async function handler(req, res) {
-  // Set CORS headers for all requests
+  // Set CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-  // Handle preflight request
+  // Handle CORS preflight request
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
   }
@@ -20,6 +20,7 @@ export default async function handler(req, res) {
       params: req.query,
       headers: { Accept: 'application/sparql-results+json' },
     });
+
     res.status(200).json(response.data);
   } catch (error) {
     console.error('SPARQL proxy error:', error.message);
