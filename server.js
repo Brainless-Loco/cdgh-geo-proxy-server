@@ -14,9 +14,11 @@ app.get('/sparql', async (req, res) => {
       params: req.query,
       headers: { Accept: 'application/sparql-results+json' },
     });
+    res.setHeader('Access-Control-Allow-Origin', '*');
     res.json(response.data);
   } catch (error) {
     console.error('SPARQL proxy error:', error.message);
+    res.setHeader('Access-Control-Allow-Origin', '*');
     res.status(500).json({ error: 'SPARQL proxy request failed' });
   }
 });
