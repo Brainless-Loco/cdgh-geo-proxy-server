@@ -36,7 +36,7 @@ app.get('/sparql', async (req, res) => {
 
         console.log("D: ",decodedQuery)
 
-        const response = await axios.get('http://bike-csecu.com:8890/sparql', {
+        const response = await axios.get('http://bike-csecu.com:8898/sparql', {
             params: {
                 query: decodedQuery,
                 format: 'application/sparql-results+json',

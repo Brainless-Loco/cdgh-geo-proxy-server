@@ -10,7 +10,7 @@ app.use(express.json());
 
 app.get('/sparql', async (req, res) => {
   try {
-    const response = await axios.get('http://bike-csecu.com:8890/sparql', {
+    const response = await axios.get('http://bike-csecu.com:8898/sparql', {
       params: req.query,
       headers: { Accept: 'application/sparql-results+json' },
     });
